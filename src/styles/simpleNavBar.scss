@@ -1,0 +1,162 @@
+@charset "utf-8";
+@import "mediaQueries";
+@import "layout";
+@import "colors";
+@import "utility";
+@import "typeography";
+//10 px = 1 rem, 10/16px = 62.5%
+
+.locationNavbar {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.navList {
+    @include horizontal-navbar;
+
+    @include responsive(laptop) {
+        @include horizontal-navbar;
+        margin: 1em auto .5rem;
+        width: 90%;
+    }
+
+    @include responsive(tablet) {
+        @include horizontal-navbar;
+        width: 95%;
+        margin: 1em auto .4em;
+    }
+
+    @include responsive(mobile) {
+        @include verticle-navbar;
+        width: 100%;
+    }
+
+    width: 80%;
+    display: flex;
+    padding: 0;
+    margin: 1em auto .9em;
+    white-space: nowrap;
+    color: $lightGray;
+
+    font-size: 1.2em;
+    line-height: 1em;
+    font-weight: 300;
+
+
+    .navItem {
+
+        list-style-type: none;
+        list-style: none;
+        outline: none;
+
+
+        .navText {
+
+            color: inherit;
+            text-align: left;
+            text-decoration: none;
+            position: relative;
+            z-index: 0;
+
+
+            @include responsive(laptop) {
+                @include laptop-font;
+            }
+
+            @include responsive(tablet) {
+                @include tablet-font;
+            }
+
+            @include responsive(mobile) {
+                @include mobile-font;
+
+            }
+        }
+
+        &.activeTab {
+            pointer-events: none;
+            color: $darkGray;
+            text-decoration: none;
+            cursor: default;
+            z-index: 2;
+        }
+
+
+    }
+
+    :hover {
+        color: $activeBlue;
+    }
+}
+
+
+
+
+.divider {
+    background-color: $lightGray;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: .070rem;
+}
+
+/**
+Transition
+*/
+.underlineTransition {
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+.activeLocationSmall {
+    @include responsive(mobile) {
+        background-color: $activeBlue;
+    }
+}
+
+.activeLocation {
+    background-color: black;
+
+    @include responsive(mobile) {
+        background-color: transparent;
+        display: none;
+    }
+}
+
+.clockWrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+
+    .header {
+        color: inherit;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        z-index: 0;
+        width: 100%;
+
+        font-size: 2em;
+
+
+        @include responsive(laptop) {
+            @include laptop-font;
+        }
+
+        @include responsive(tablet) {
+            @include tablet-font;
+        }
+
+        @include responsive(mobile) {
+            @include mobile-font;
+
+        }
+    }
+}

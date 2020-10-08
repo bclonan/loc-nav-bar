@@ -1,0 +1,28 @@
+// Note : for exercise declaring global font however in real case would create base font and extend.
+html {
+    -webkit-font-smoothing: antialiased;
+    font-family: "SF Pro Text",
+        "SF Pro Icons",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        sans-serif;
+}
+
+@mixin mobile-font {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: 200;
+}
+
+@mixin tablet-font {
+    font-size: .90em;
+    line-height: 1em;
+    font-weight: 200;
+}
+
+@mixin laptop-font {
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 200;
+}
