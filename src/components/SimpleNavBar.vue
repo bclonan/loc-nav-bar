@@ -1,19 +1,24 @@
 <template>
   <div>
     <nav class="locationNavbar">
-      <ul class="navList">
+      <ul class="navList" id="locationBar" role="menu" aria-label="Locations">
         <li
           :class="[index == activeTab ? selected : null]"
           v-for="(option, index) in items"
           :key="index"
           class="navItem"
           @click="activateItem"
+          role="none"
         >
           <a
             href="#"
             @click.prevent="$emit('updateLocationSelection', index)"
             :id="index"
             class="navText"
+            role="menuitem"
+            :tabindex="index"
+            aria-haspopup="false"
+            aria-expanded="false"
           >
             {{ option["label"] }}
           </a>
