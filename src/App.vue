@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     changeLocation(selectedLocationIndex) {
-      if (!selectedLocationIndex) return;
+      if (selectedLocationIndex == null || selectedLocationIndex == undefined)
+        return;
       this.activeTab = selectedLocationIndex;
     },
     startClock() {
