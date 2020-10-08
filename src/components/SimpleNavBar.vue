@@ -16,10 +16,10 @@
             :id="index"
             class="navText"
             role="menuitem"
-            :tabindex="index"
+            tabindex="-1"
             aria-haspopup="false"
             aria-expanded="false"
-            aria-current="selection"
+            :name="option.label"
           >
             {{ option["label"] }}
           </a>
