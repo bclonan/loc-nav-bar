@@ -72,7 +72,7 @@ export default {
     activateItem(event) {
       this.getDimensions(event.target);
     },
-    resizeWindow(event) {
+    resizeWindow() {
       var baseElement = document.getElementById(this.activeTab);
       this.getDimensions(baseElement);
     },
