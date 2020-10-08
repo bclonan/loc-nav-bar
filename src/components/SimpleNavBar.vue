@@ -19,6 +19,7 @@
             :tabindex="index"
             aria-haspopup="false"
             aria-expanded="false"
+            aria-current="selection"
           >
             {{ option["label"] }}
           </a>
