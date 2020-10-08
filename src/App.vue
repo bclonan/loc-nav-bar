@@ -6,7 +6,7 @@
       @updateLocationSelection="changeLocation"
     >
       <template v-slot:clock>
-        <div class="clockWrapper" v-show="selectedTime">
+        <div class="clockWrapper" role="contentinfo" v-show="selectedTime">
           <p class="header">{{ selectedLocation }}</p>
           <p class="currentTime">{{ selectedTime }}</p>
         </div></template
