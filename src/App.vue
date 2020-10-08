@@ -42,6 +42,7 @@ export default {
       if (this.activeTab == null || this.activeTab == undefined) return;
 
       //NOTE : Currently hardcoding the utc offsets in ideally would be included with the data, Also currently accounting for Daylight saving times
+      //NOTE : Preferably would use an es6 filter function rather than switch
       switch (this.activeTab) {
         case 0:
           this.calcTime("Cupertino", "-7");
@@ -71,18 +72,19 @@ export default {
     calcTime(location, offset) {
       var dt, utcFormattedDate, finalDate;
       dt = new Date();
-
       utcFormattedDate = dt.getTime() + dt.getTimezoneOffset() * 60000;
-
       finalDate = new Date(utcFormattedDate + 3600000 * offset);
-
       this.selectedTime = finalDate.toLocaleTimeString();
       this.selectedLocation = location;
     },
   },
   computed: {
     NavigationItems() {
-      return !this.$navigation["cities"] ? [] : this.$navigation["cities"];
+      return !this.$navigation
+        ? []
+        : Object.prototype.hasOwnProperty.call(this.$navigation, "cities")
+        ? this.$navigation["cities"]
+        : [];
     },
   },
 };

@@ -39,6 +39,7 @@
 export default {
   name: "SimpleNavBar",
   mounted() {
+    if (this.activeTab == null || this.activeTab == undefined) return;
     try {
       var baseElement = document.getElementById(this.activeTab);
       this.getDimensions(baseElement);
@@ -74,9 +75,11 @@ export default {
     },
     resizeWindow() {
       var baseElement = document.getElementById(this.activeTab);
+      if (!baseElement) return;
       this.getDimensions(baseElement);
     },
     getDimensions(targetElement) {
+      if (targetElement == null || targetElement == undefined) return;
       var baseElementSizing = targetElement.getBoundingClientRect();
       /** NOTE: Can be replaced with es6 object destructuring
        *
